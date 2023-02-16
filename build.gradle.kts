@@ -1,19 +1,15 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.8.10" apply false
+    kotlin("plugin.serialization") version "1.8.10" apply false
 }
 
-group = "fr.imacaron"
-version = "1.0"
+allprojects {
 
-repositories {
-    mavenCentral()
-}
+    group = "fr.imacaron"
 
-dependencies {
-    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
-}
+    version = 1.0
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+    repositories {
+        mavenCentral()
+    }
 }
