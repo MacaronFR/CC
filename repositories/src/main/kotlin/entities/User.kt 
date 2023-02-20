@@ -1,0 +1,10 @@
+package entities
+
+import ktorm
+
+data class Utilisateur(
+    val id: UUID,
+    val nom: String,
+    val email: String,
+    val motDePasse: String
+)
