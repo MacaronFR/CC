@@ -4,7 +4,7 @@ import entities.Heroes
 import entities.Rarity
 import entities.Specialty
 import org.ktorm.entity.Entity
-import java.util.UUID
+import java.util.*
 
 internal interface KtormHeroes: Entity<KtormHeroes> {
     var id: UUID
@@ -23,6 +23,13 @@ internal interface KtormHeroes: Entity<KtormHeroes> {
         fun fromHeroes(value: Heroes): KtormHeroes = KtormHeroes {
             id = value.id
             name = value.name
+            healthPoints = value.healthPoints
+            experiencePoints = value.experiencePoints
+            power = value.power
+            armor = value.armor
+            specialty = value.specialty
+            rarity = value.rarity
+            level = value.level
         }
     }
 }
