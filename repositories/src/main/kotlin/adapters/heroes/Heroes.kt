@@ -5,7 +5,7 @@ import entities.Rarity
 import entities.Specialty
 import org.ktorm.schema.*
 
-internal object Heroes: Table<KtormHeroes>("HEROES") {
+internal object Heroes: Table<KtormHero>("HEROES") {
     val id = uuid("id").primaryKey().bindTo { it.id }
     val name = varchar("name").bindTo { it.name }
     val healthPoints = int("healthPoints").bindTo { it.healthPoints }

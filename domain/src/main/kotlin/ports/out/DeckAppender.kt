@@ -1,6 +1,6 @@
 package ports.out
 
-import entities.Deck
+import entities.deck.Deck
 
 interface DeckAppender {
 

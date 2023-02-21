@@ -1,6 +1,6 @@
 package services.decks
 
-import entities.Deck
+import entities.deck.Deck
 import ports.DecksRepository
 import ports.out.DeckAppender
 
