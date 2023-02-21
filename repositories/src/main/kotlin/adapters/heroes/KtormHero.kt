@@ -6,7 +6,7 @@ import entities.Specialty
 import org.ktorm.entity.Entity
 import java.util.*
 
-internal interface KtormHeroes: Entity<KtormHeroes> {
+internal interface KtormHero: Entity<KtormHero> {
     var id: UUID
     var name: String
     var healthPoints: Int
@@ -19,8 +19,8 @@ internal interface KtormHeroes: Entity<KtormHeroes> {
 
     fun toHeroes(): Heroes = Heroes(id, name, healthPoints, experiencePoints, power, armor, specialty, rarity, level)
 
-    companion object: Entity.Factory<KtormHeroes>(){
-        fun fromHeroes(value: Heroes): KtormHeroes = KtormHeroes {
+    companion object: Entity.Factory<KtormHero>(){
+        fun fromHeroes(value: Heroes): KtormHero = KtormHero {
             id = value.id
             name = value.name
             healthPoints = value.healthPoints

@@ -3,9 +3,12 @@ package adapters.heroes
 import adapters.enumString
 import entities.Rarity
 import entities.Specialty
-import org.ktorm.schema.*
+import org.ktorm.schema.Table
+import org.ktorm.schema.int
+import org.ktorm.schema.uuid
+import org.ktorm.schema.varchar
 
-internal object Heroes: Table<KtormHeroes>("HEROES") {
+internal object Heroes: Table<KtormHero>("HEROES") {
     val id = uuid("id").primaryKey().bindTo { it.id }
     val name = varchar("name").bindTo { it.name }
     val healthPoints = int("healthPoints").bindTo { it.healthPoints }

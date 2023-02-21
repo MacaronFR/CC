@@ -2,24 +2,22 @@ package adapters.heroes
 
 import adapters.heroes
 import entities.Heroes
-import entities.Heroes.HeroesFactory
 import org.ktorm.database.Database
 import org.ktorm.dsl.eq
 import org.ktorm.entity.add
 import org.ktorm.entity.find
+import org.ktorm.entity.map
 import ports.HeroesRepository
 import java.util.*
 
-class KtormHereosRepository(private val db: Database) :HeroesRepository{
-    override fun read(id: UUID): Heroes = db.heroes.find { it.id eq id }?.toHeroes() ?: throw HeroesNotFoundException()
+class KtormHeroesRepository(private val db: Database): HeroesRepository{
+    override fun read(id: UUID): Heroes = db.heroes.find { it.id eq id }?.toHeroes() ?: throw HeroNotFoundException()
 
 
-    override fun readAll(): List<Heroes> {
-        TODO("Not yet implemented")
-    }
+    override fun readAll(): List<Heroes> = db.heroes.map { it.toHeroes() }
 
     override fun create(value: Heroes): Heroes {
-        val newHero = HeroesFactory().create(value.name, value.specialty, value.rarity)
+        val newHero = Heroes.HeroesFactory().create(value.name, value.specialty, value.rarity)
         db.heroes.add() {
             set(it.id, newHero.id)
             set(it.name, newHero.name)
@@ -34,8 +32,7 @@ class KtormHereosRepository(private val db: Database) :HeroesRepository{
         return newHero
     }
 
-
-    override fun update(id: UUID): Heroes {
+    override fun update(id: UUID, value: Nothing): Heroes {
         TODO("Not yet implemented")
     }
 
@@ -44,3 +41,6 @@ class KtormHereosRepository(private val db: Database) :HeroesRepository{
     }
 
 }
+
+
+
