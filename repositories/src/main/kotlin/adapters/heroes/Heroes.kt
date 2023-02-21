@@ -1,5 +1,8 @@
 package adapters.heroes
 
+import adapters.enumString
+import entities.Rarity
+import entities.Specialty
 import org.ktorm.schema.*
 
 internal object Heroes: Table<KtormHeroes>("HEROES") {
@@ -9,7 +12,7 @@ internal object Heroes: Table<KtormHeroes>("HEROES") {
     val experiencePoints = int("experiencePoints").bindTo { it.experiencePoints }
     val power = int("power").bindTo { it.power }
     val armor = int("armor").bindTo { it.armor }
-    val specialty = varchar("specialty").bindTo { it.specialty }
-    val rarity = varchar("rarity").bindTo { it.rarity }
+    val specialty = enumString<Specialty>("specialty").bindTo { it.specialty }
+    val rarity = enumString<Rarity>("rarity").bindTo { it.rarity }
     val level = int("level").bindTo { it.level }
 }
