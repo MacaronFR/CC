@@ -7,6 +7,7 @@ val ktor_version: String by project
 
 dependencies {
     implementation(project(":shared"))
+    implementation(project(":domain"))
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-resources:$ktor_version")
