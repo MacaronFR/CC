@@ -6,7 +6,10 @@ import serializer.UUIDSerializer
 import java.util.UUID
 
 @Resource("/decks")
-class Decks(){
+class Decks{
 	@Resource("{id}")
-	class Id(val parent: Decks = Decks(), @Serializable(with = UUIDSerializer::class)val id: UUID)
+	class Id(val parent: Decks = Decks(), @Serializable(with = UUIDSerializer::class)val id: UUID){
+		@Resource("append")
+		class Append(val parent: Id)
+	}
 }

@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run API" type="KtorApplicationConfigurationType" factoryName="Ktor">
+    <module name="CC.api.main" />
+    <option name="alternativeJrePath" />
+    <option name="alternativeJrePathEnabled" value="false" />
+    <option name="includeProvidedScope" value="true" />
+    <option name="mainClass" value="MainKt" />
+    <option name="passParentEnvs" value="true" />
+    <option name="programParameters" value="" />
+    <option name="shortenCommandLine" value="NONE" />
+    <option name="vmParameters" value="" />
+    <option name="workingDirectory" value="" />
+    <envs>
+      <env name="BDD_URL" value="jdbc:mysql://localhost:1870/CC" />
+      <env name="BDD_PASSWORD" value="root" />
+      <env name="BDD_USER" value="root" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
