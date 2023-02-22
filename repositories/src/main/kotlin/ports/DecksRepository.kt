@@ -1,5 +1,6 @@
 package ports
 
+import entities.card.Card
 import entities.deck.Deck
 import entities.deck.DeckUpdate
 import java.util.*
@@ -14,4 +15,6 @@ interface DecksRepository{
 	fun update(id: UUID, value: DeckUpdate): Deck
 
 	fun delete(id: UUID): Deck
+
+	fun appendCard(deck: Deck, card: Card): Deck
 }

@@ -1,6 +1,7 @@
 package adapters.decks
 
 import adapters.decks
+import entities.card.Card
 import entities.deck.Deck
 import entities.deck.DeckUpdate
 import ports.DecksRepository
@@ -30,5 +31,9 @@ class KtormDecksRepository(private val db: Database, private val cardsRepository
 		delete()
 		toDeck(cardsRepository.deleteByDeck(id))
 	} ?: throw DeckNotFoundException()
+
+	override fun appendCard(deck: Deck, card: Card): Deck {
+		TODO("Not yet implemented")
+	}
 }
 

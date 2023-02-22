@@ -18,17 +18,7 @@ class KtormHeroesRepository(private val db: Database): HeroesRepository{
 
     override fun create(value: Heroes): Heroes {
         val newHero = Heroes.HeroesFactory().create(value.name, value.specialty, value.rarity)
-        db.heroes.add() {
-            set(it.id, newHero.id)
-            set(it.name, newHero.name)
-            set(it.specialty, newHero.specialty)
-            set(it.rarity, newHero.rarity)
-            set(it.level, newHero.level)
-            set(it.experiencePoints, newHero.experiencePoints)
-            set(it.healthPoints, newHero.healthPoints)
-            set(it.power, newHero.power)
-            set(it.armor, newHero.armor)
-        }
+        db.heroes.add(KtormHero.fromHeroes(newHero))
         return newHero
     }
 
