@@ -1,4 +1,7 @@
 package adapters.users
 
-class Users {
+import org.ktorm.schema.Table
+
+internal object Users: Table<KtormUser>("USERS") {
+	
 }
