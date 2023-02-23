@@ -1,5 +1,6 @@
 package ports
 
+import entities.Users
 import java.util.*
 
 interface UsersRepository{
