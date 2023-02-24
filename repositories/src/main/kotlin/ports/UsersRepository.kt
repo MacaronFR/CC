@@ -1,16 +1,18 @@
 package ports
 
-import entities.Users
+import entities.users.AddUser
+import entities.users.UpdateUser
+import entities.users.User
 import java.util.*
 
 interface UsersRepository{
-	fun read(id: UUID): Nothing
+	fun read(id: UUID): User
 
-	fun readAll(): List<Nothing>
+	fun readAll(): List<User>
 
-	fun create(value: Nothing): Nothing
+	fun create(value: AddUser): User
 
-	fun update(id: UUID, value: Nothing): Nothing
+	fun update(id: UUID, value: UpdateUser): User
 
-	fun delete(id: UUID): Nothing
+	fun delete(id: UUID): User
 }

@@ -1,4 +1,3 @@
 package adapters.users
 
-class UserNotFoundException {
-}
+class UserNotFoundException: Exception("User not found")
