@@ -11,8 +11,8 @@ repositories {
 
 dependencies {
     implementation("org.ktorm:ktorm-core:3.6.0")
-    
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+    implementation("com.google.guava:guava:31.1-jre")
     implementation(project(":shared"))
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
