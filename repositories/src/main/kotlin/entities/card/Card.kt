@@ -8,6 +8,8 @@ import java.util.*
 @Serializable
 data class Card(
 		@Serializable(with = UUIDSerializer::class)
-		val id: UUID,
-		val hero: Heroes
+		var id: UUID,
+		var hero: Heroes,
+		var experiencePoints: Int,
+		var level: Int,
 )

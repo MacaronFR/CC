@@ -32,7 +32,8 @@ class KtormCardsRepository(private val db: Database): CardsRepository {
 	}
 
 	override fun update(id: UUID, value: Card): Card = db.cards.find { it.id eq id }?.apply {
-
+		level = value.level
+		experiencePoints = value.experiencePoints
 		flushChanges()
 	}?.toCard() ?: throw CardNotFoundException()
 

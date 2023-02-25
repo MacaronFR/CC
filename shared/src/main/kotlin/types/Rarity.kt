@@ -1,4 +1,4 @@
-package entities
+package types
 
 import serializer.enums.TEnum
 import serializer.enums.string.AbstractEnumStringSerializer

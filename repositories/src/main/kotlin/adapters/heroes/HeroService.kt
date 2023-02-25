@@ -1,8 +1,8 @@
 package domain.services
 
 import entities.Heroes
-import entities.Rarity
-import entities.Specialty
+import types.Rarity
+import types.Specialty
 
 class HeroService {
 
@@ -40,7 +40,7 @@ class HeroService {
             Rarity.RARE -> 1.1
             Rarity.LEGENDARY -> 1.2
         }
-        val levelMultiplier = 1 + 0.1 * (hero.level - 1)
+        val levelMultiplier = 1 + 0.1 //* (hero.level - 1)
 
         val healthPoints = (baseHealthPoints * rarityMultiplier * levelMultiplier).toInt()
         val power = (basePower * rarityMultiplier * levelMultiplier).toInt()
@@ -51,19 +51,5 @@ class HeroService {
             "power" to power,
             "armor" to armor
         )
-    }
-
-    fun manageExperience(hero: Heroes) {
-        hero.experiencePoints += 1
-
-        if (hero.experiencePoints >= 5) {
-            hero.experiencePoints = 0
-            hero.level += 1
-
-            val baseStats = calculateBaseStats(hero)
-            hero.healthPoints = baseStats["healthPoints"]!!
-            hero.power = baseStats["power"]!!
-            hero.armor = baseStats["armor"]!!
-        }
     }
 }

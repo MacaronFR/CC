@@ -1,6 +1,7 @@
 package adapters.combats
 
-import adapters.heroes.KtormHero
+import adapters.cards.KtormCard
+import adapters.decks.KtormDeck
 import adapters.users.KtormUser
 import entities.card.Card
 import entities.combats.Combat
@@ -10,17 +11,17 @@ import java.util.UUID
 internal interface KtormCombat: Entity<KtormCombat> {
 	var id: UUID
 	var user1: KtormUser
-	var hero1: KtormHero
+	var card1: KtormCard
 	var user2: KtormUser
-	var hero2: KtormHero
+	var card2: KtormCard
 	var winner: KtormUser
 
 	fun toCombat(card1: List<Card>, card2: List<Card>, cardWinner: List<Card>): Combat = Combat(
 			id,
 			user1.toUser(card1),
-			hero1.toHeroes(),
+			this.card1.toCard(),
 			user2.toUser(card2),
-			hero2.toHeroes(),
+			this.card2.toCard(),
 			winner.toUser(cardWinner)
 	)
 
@@ -28,9 +29,9 @@ internal interface KtormCombat: Entity<KtormCombat> {
 		fun fromCombat(combat: Combat): KtormCombat = KtormCombat {
 			id = combat.id
 			user1 = KtormUser.fromUser(combat.user1)
-			hero1 = KtormHero.fromHeroes(combat.hero1)
+			card1 = KtormCard.fromCard(combat.card1, KtormDeck.fromDeck(combat.user1.deck))
 			user2 = KtormUser.fromUser(combat.user2)
-			hero2 = KtormHero.fromHeroes(combat.hero2)
+			card2 = KtormCard.fromCard(combat.card2, KtormDeck.fromDeck(combat.user2.deck))
 			winner = KtormUser.fromUser(combat.winner)
 		}
 	}

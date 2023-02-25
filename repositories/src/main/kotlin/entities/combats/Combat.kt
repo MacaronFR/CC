@@ -1,6 +1,6 @@
 package entities.combats
 
-import entities.Heroes
+import entities.card.Card
 import entities.users.User
 import kotlinx.serialization.Serializable
 import serializer.UUIDSerializer
@@ -11,8 +11,8 @@ data class Combat(
 		@Serializable(UUIDSerializer::class)
 		val id: UUID,
 		val user1: User,
-		val hero1: Heroes,
+		val card1: Card,
 		val user2: User,
-		val hero2: Heroes,
+		val card2: Card,
 		val winner: User
 )

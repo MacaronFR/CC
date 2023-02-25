@@ -43,6 +43,14 @@ class KtormCombatRepository(private val db: Database, private val cardRepo: Card
 		)
 	}
 
+	override fun readByUser(id: UUID): List<Combat> = db.combats.filter { (it.user1 eq id) or (it.user2 eq id) }.map {
+		it.toCombat(
+				deckCache[it.user1.deck.id],
+				deckCache[it.user2.deck.id],
+				deckCache[it.winner.deck.id]
+		)
+	}
+
 	override fun create(data: Combat): Combat {
 		val combat = KtormCombat.fromCombat(data)
 		db.combats.add(combat)

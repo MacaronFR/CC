@@ -11,14 +11,18 @@ internal interface KtormCard: Entity<KtormCard> {
 	var id: UUID
 	var deck: KtormDeck
 	var hero: KtormHero
+	var experiencePoints: Int
+	var level: Int
 
-	fun toCard(): Card = Card(id, hero.toHeroes())
+	fun toCard(): Card = Card(id, hero.toHeroes(), experiencePoints, level)
 
 	companion object: Entity.Factory<KtormCard>(){
 		fun fromCard(card: Card, deck: KtormDeck) = KtormCard{
 			id = card.id
 			this.deck = deck
 			hero = KtormHero.fromHeroes(card.hero)
+			level = card.level
+			experiencePoints = card.experiencePoints
 		}
 	}
 }
