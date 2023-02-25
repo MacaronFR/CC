@@ -1,3 +1,5 @@
 package adapters.decks
 
-class DeckNotFoundException: Exception("Deck not found")
+import ports.NotFoundException
+
+class DeckNotFoundException: NotFoundException("Deck not found")

@@ -1,3 +1,5 @@
 package adapters.cards
 
-class CardNotFoundException: Exception("Card not found")
+import ports.NotFoundException
+
+class CardNotFoundException: NotFoundException("Card not found")

@@ -1,3 +1,5 @@
 package adapters.users
 
-class UserNotFoundException: Exception("User not found")
+import ports.NotFoundException
+
+class UserNotFoundException: NotFoundException("User not found")

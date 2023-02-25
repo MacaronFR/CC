@@ -1,3 +1,5 @@
 package adapters.heroes
 
-class HeroNotFoundException: Exception("heroes not found")
+import ports.NotFoundException
+
+class HeroNotFoundException: NotFoundException("heroes not found")
