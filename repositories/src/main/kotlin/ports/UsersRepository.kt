@@ -10,6 +10,8 @@ interface UsersRepository{
 
 	fun readAll(): List<User>
 
+	fun readByPseudo(pseudo: String): List<User>
+
 	fun create(value: AddUser): User
 
 	fun update(id: UUID, value: UpdateUser): User

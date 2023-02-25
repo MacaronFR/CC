@@ -8,7 +8,9 @@ import entities.users.UpdateUser
 import entities.users.User
 import org.ktorm.database.Database
 import org.ktorm.dsl.eq
+import org.ktorm.dsl.like
 import org.ktorm.entity.add
+import org.ktorm.entity.filter
 import org.ktorm.entity.find
 import org.ktorm.entity.map
 import ports.CardsRepository
@@ -31,10 +33,13 @@ class KtormUsersRepository(
 		user.toUser(cardRepo.getByDeck(user.deck.id))
 	}
 
+	override fun readByPseudo(pseudo: String): List<User> = db.users.filter { it.pseudo like "%$pseudo%" }.map { it.toUser(cardRepo.getByDeck(it.deck.id)) }
+
 	override fun create(value: AddUser): User {
 		val deck = deckRepo.create(Deck(UUID.randomUUID(), "${value.pseudo}DefaultDeck", listOf()))
 		val user = KtormUser {
 			pseudo = value.pseudo
+			token = value.token
 			this.deck = KtormDeck.fromDeck(deck)
 		}
 		db.users.add(user)
