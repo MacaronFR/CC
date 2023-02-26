@@ -21,19 +21,10 @@ class KtormHeroesRepository(private val db: Database): HeroesRepository{
     override fun randomByRarity(rarity: Rarity): Hero = db.heroes.filter { it.rarity eq rarity }.map { it }.random().toHeroes()
 
     override fun create(value: Hero): Hero {
-        val newHero = Hero.HeroesFactory().create(value.name, value.specialty, value.rarity)
+        val newHero = Hero.Factory(value.name, value.specialty, value.rarity)
         db.heroes.add(KtormHero.fromHeroes(newHero))
         return newHero
     }
-
-    override fun update(id: UUID, value: Nothing): Hero {
-        TODO("Not yet implemented")
-    }
-
-    override fun delete(id: UUID): Hero {
-        TODO("Not yet implemented")
-    }
-
 }
 
 

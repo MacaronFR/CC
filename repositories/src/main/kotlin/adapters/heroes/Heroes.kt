@@ -6,7 +6,7 @@ import org.ktorm.schema.int
 import org.ktorm.schema.uuid
 import org.ktorm.schema.varchar
 import types.Rarity
-import types.Specialty
+import types.Speciality
 
 internal object Heroes: Table<KtormHero>("HEROES") {
     val id = uuid("id").primaryKey().bindTo { it.id }
@@ -14,6 +14,6 @@ internal object Heroes: Table<KtormHero>("HEROES") {
     val healthPoints = int("healthPoints").bindTo { it.healthPoints }
     val power = int("power").bindTo { it.power }
     val armor = int("armor").bindTo { it.armor }
-    val speciality = enumString<Specialty>("speciality").bindTo { it.specialty }
+    val speciality = enumString<Speciality>("speciality").bindTo { it.specialty }
     val rarity = enumString<Rarity>("rarity").bindTo { it.rarity }
 }

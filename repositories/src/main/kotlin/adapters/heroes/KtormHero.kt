@@ -3,7 +3,7 @@ package adapters.heroes
 import entities.heroes.Hero
 import org.ktorm.entity.Entity
 import types.Rarity
-import types.Specialty
+import types.Speciality
 import java.util.*
 
 internal interface KtormHero: Entity<KtormHero> {
@@ -12,7 +12,7 @@ internal interface KtormHero: Entity<KtormHero> {
     var healthPoints: Int
     var power: Int
     var armor: Int
-    var specialty: Specialty
+    var specialty: Speciality
     var rarity: Rarity
 
     fun toHeroes(): Hero = Hero(id, name, healthPoints, power, armor, specialty, rarity)

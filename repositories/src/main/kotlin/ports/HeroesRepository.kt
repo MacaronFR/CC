@@ -12,8 +12,4 @@ interface HeroesRepository{
 	fun randomByRarity(rarity: Rarity): Hero
 
 	fun create(value: Hero): Hero
-
-	fun update(id: UUID, value: Nothing): Hero
-
-	fun delete(id: UUID): Hero
 }

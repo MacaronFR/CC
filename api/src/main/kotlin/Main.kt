@@ -11,10 +11,13 @@ import plugins.contentNegotiation
 import plugins.resources
 import plugins.statusPage
 import routes.installCombats
+import routes.installHeroes
 import routes.installUsers
 import services.cards.CardGetterService
 import services.combats.CombatSearcherService
 import services.combats.StartCombatService
+import services.heroes.HeroCreatorService
+import services.heroes.HeroSearcher
 import services.packs.PackOpenerService
 import services.users.*
 
@@ -44,10 +47,13 @@ fun Application.module() {
 	val cardGetter = CardGetterService(cardRepo)
 	val startCombat = StartCombatService(combatRepo, cardRepo, userRepo)
 	val combatSearcher = CombatSearcherService(combatRepo)
+	val heroSearcher = HeroSearcher(heroRepo)
+	val heroCreator = HeroCreatorService(heroRepo)
 	contentNegotiation()
 	resources()
 	statusPage()
 	callLogging()
 	installUsers(userCreator, userSearch, userUpdater, packOpener, userRemoveToken, userAddToken, cardGetter, startCombat)
 	installCombats(combatSearcher)
+	installHeroes(heroSearcher, heroCreator)
 }

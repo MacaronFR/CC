@@ -3,9 +3,9 @@ package types
 import serializer.enums.TEnum
 import serializer.enums.string.AbstractEnumStringSerializer
 
-object SpecialitySerializer: AbstractEnumStringSerializer<Specialty>(Specialty::class)
+object SpecialitySerializer: AbstractEnumStringSerializer<Speciality>(Speciality::class)
 
-enum class Specialty(override val value: String): TEnum<String> {
+enum class Speciality(override val value: String): TEnum<String> {
     TANK("tank"),
     ASSASSIN("assassin"),
     MAGE("mage");
