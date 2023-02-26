@@ -58,5 +58,4 @@ class StartCombatService(private val combatRepo: CombatRepository, private val c
 	private fun registerCombat(combat: Combat){
 		combatRepo.create(combat)
 	}
-
 }

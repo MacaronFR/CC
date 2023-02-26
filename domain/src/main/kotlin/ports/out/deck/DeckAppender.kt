@@ -5,6 +5,6 @@ import entities.deck.Deck
 
 interface DeckAppender {
 
-	fun append(deck: Deck, card: Card): Boolean
+	fun append(deck: Deck, card: Card): Deck
 
 }
