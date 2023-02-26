@@ -14,6 +14,6 @@ internal object Heroes: Table<KtormHero>("HEROES") {
     val healthPoints = int("healthPoints").bindTo { it.healthPoints }
     val power = int("power").bindTo { it.power }
     val armor = int("armor").bindTo { it.armor }
-    val specialty = enumString<Specialty>("specialty").bindTo { it.specialty }
+    val speciality = enumString<Specialty>("speciality").bindTo { it.specialty }
     val rarity = enumString<Rarity>("rarity").bindTo { it.rarity }
 }

@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   db:
-    image: mariadb:10.2
+    image: mariadb:10.11.2
     restart: always
     environment:
       - MARIADB_DATABASE=CC

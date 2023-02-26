@@ -14,6 +14,7 @@ internal interface KtormDeck: Entity<KtormDeck> {
     companion object: Entity.Factory<KtormDeck>(){
         fun fromDeck(value: Deck): KtormDeck = KtormDeck {
             id = value.id
+            name = value.name
         }
     }
 }

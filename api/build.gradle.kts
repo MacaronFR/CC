@@ -18,7 +18,7 @@ dependencies {
 	implementation("io.ktor:ktor-server-status-pages:$ktor_version")
 	implementation("org.ktorm:ktorm-core:3.6.0")
 	implementation("ch.qos.logback:logback-classic:1.4.5")
-	implementation("org.mariadb.jdbc:mariadb-java-client:3.0.6")
+	implementation("org.mariadb.jdbc:mariadb-java-client:3.1.2")
 	implementation("io.ktor:ktor-server-core-jvm:2.2.3")
 	implementation("io.ktor:ktor-server-host-common-jvm:2.2.3")
 	implementation("io.ktor:ktor-server-status-pages-jvm:2.2.3")

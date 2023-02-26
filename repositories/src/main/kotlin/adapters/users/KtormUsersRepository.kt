@@ -38,6 +38,7 @@ class KtormUsersRepository(
 	override fun create(value: AddUser): User {
 		val deck = deckRepo.create(Deck(UUID.randomUUID(), "${value.pseudo}DefaultDeck", listOf()))
 		val user = KtormUser {
+			id = UUID.randomUUID()
 			pseudo = value.pseudo
 			token = value.token
 			this.deck = KtormDeck.fromDeck(deck)

@@ -40,7 +40,10 @@ fun Application.module() {
 		exception<Throwable> { call, cause ->
 			when(cause){
 				is NotFoundException -> call.respondText("404", status = HttpStatusCode.NotFound)
-				else -> call.respondText(text = "500: $cause", status = HttpStatusCode.InternalServerError)
+				else -> {
+					cause.printStackTrace()
+					call.respondText(text = "500: $cause", status = HttpStatusCode.InternalServerError)
+				}
 			}
 		}
 	}
