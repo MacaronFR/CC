@@ -1,6 +1,6 @@
 package entities.card
 
-import entities.Heroes
+import entities.heroes.Hero
 import kotlinx.serialization.Serializable
 import ports.HeroesRepository
 import serializer.UUIDSerializer
@@ -13,7 +13,7 @@ import kotlin.random.Random
 data class Card(
 		@Serializable(with = UUIDSerializer::class)
 		var id: UUID,
-		var hero: Heroes,
+		var hero: Hero,
 		var experiencePoints: Int,
 		var level: Int,
 ){

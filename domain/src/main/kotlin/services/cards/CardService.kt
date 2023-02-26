@@ -1,9 +1,9 @@
 package services.cards
 
-import entities.Heroes
+import entities.heroes.Hero
 
 internal object CardService {
-	fun calculateLeveledStat(level: Int, hero: Heroes): Heroes{
+	fun calculateLeveledStat(level: Int, hero: Hero): Hero {
 		var levelBoost = 1.0
 		for( i in 1..level){
 			levelBoost *= 1.1

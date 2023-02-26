@@ -1,4 +1,4 @@
-package entities
+package entities.heroes
 
 import kotlinx.serialization.Serializable
 import serializer.UUIDSerializer
@@ -9,7 +9,7 @@ import types.Specialty
 import java.util.*
 
 @Serializable
-data class Heroes(
+data class Hero(
 		@Serializable(with = UUIDSerializer::class)
 		var id: UUID,
 		var name: String,
@@ -22,11 +22,11 @@ data class Heroes(
 		var rarity: Rarity,
 ) {
 	class HeroesFactory {
-		fun create(name: String, specialty: Specialty, rarity: Rarity): Heroes {
+		fun create(name: String, specialty: Specialty, rarity: Rarity): Hero {
 			val id = UUID.randomUUID()
 			val baseStats = calculateStatDeBase(specialty, rarity)
 
-			return Heroes(
+			return Hero(
 				id,
 				name,
 				baseStats["healthPoints"]!!,

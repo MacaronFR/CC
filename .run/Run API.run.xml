@@ -11,8 +11,8 @@
     <option name="vmParameters" value="" />
     <option name="workingDirectory" value="" />
     <envs>
-      <env name="BDD_URL" value="jdbc:mysql://localhost:1870/CC" />
       <env name="BDD_PASSWORD" value="root" />
+      <env name="BDD_URL" value="jdbc:mariadb://localhost:3306/CC" />
       <env name="BDD_USER" value="root" />
     </envs>
     <method v="2" />

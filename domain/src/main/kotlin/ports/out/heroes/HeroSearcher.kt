@@ -1,10 +1,10 @@
 package ports.out.heroes
 
-import entities.Heroes
+import entities.heroes.Hero
 import java.util.UUID
 
 interface HeroSearcher {
-	fun getAll(): List<Heroes>
+	fun getAll(): List<Hero>
 
-	fun get(id: UUID): Heroes
+	fun get(id: UUID): Hero
 }

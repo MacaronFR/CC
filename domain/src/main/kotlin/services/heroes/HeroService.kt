@@ -1,11 +1,11 @@
 package services.heroes
 
-import entities.Heroes
+import entities.heroes.Hero
 import types.Rarity
 import types.Specialty
 
 internal object HeroService {
-	fun calculateBasePower(hero: Heroes, opponent: Heroes): Int {
+	fun calculateBasePower(hero: Hero, opponent: Hero): Int {
 		var power = hero.power
 
 		if (hero.specialty == Specialty.TANK && opponent.specialty == Specialty.MAGE) {
@@ -19,7 +19,7 @@ internal object HeroService {
 		return power
 	}
 
-	fun calculateBaseArmor(hero: Heroes): Int {
+	fun calculateBaseArmor(hero: Hero): Int {
 		val baseArmor = hero.armor
 		val rarityMultiplier = when (hero.rarity) {
 			Rarity.COMMON -> 1.0
@@ -30,5 +30,5 @@ internal object HeroService {
 		return (baseArmor * rarityMultiplier).toInt()
 	}
 
-	fun fight(hero: Heroes, opponent: Heroes): Heroes = hero.copy(healthPoints = hero.healthPoints - (opponent.power - hero.armor) )
+	fun fight(hero: Hero, opponent: Hero): Hero = hero.copy(healthPoints = hero.healthPoints - (opponent.power - hero.armor) )
 }

@@ -1,19 +1,19 @@
 package ports
 
-import entities.Heroes
+import entities.heroes.Hero
 import types.Rarity
 import java.util.*
 
 interface HeroesRepository{
-	fun read(id: UUID): Heroes
+	fun read(id: UUID): Hero
 
-	fun readAll(): List<Heroes>
+	fun readAll(): List<Hero>
 
-	fun randomByRarity(rarity: Rarity): Heroes
+	fun randomByRarity(rarity: Rarity): Hero
 
-	fun create(value: Heroes): Heroes
+	fun create(value: Hero): Hero
 
-	fun update(id: UUID, value: Nothing): Heroes
+	fun update(id: UUID, value: Nothing): Hero
 
-	fun delete(id: UUID): Heroes
+	fun delete(id: UUID): Hero
 }

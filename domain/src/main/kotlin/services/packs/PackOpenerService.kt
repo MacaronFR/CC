@@ -4,14 +4,14 @@ import entities.card.Card
 import entities.users.User
 import ports.CardsRepository
 import ports.HeroesRepository
+import ports.out.exception.NoTokenLeftException
 import ports.out.packs.PackOpener
 import types.PackType
-import java.lang.Exception
 
 class PackOpenerService(private val cardRepo: CardsRepository, private val heroRepo: HeroesRepository): PackOpener {
 	override fun open(user: User, type: PackType): List<Card> {
 		if(!user.canOpen(type)){
-			throw Exception()
+			throw NoTokenLeftException()
 		}
 		return openPack(type).onEach {
 			cardRepo.create(it, user.deck.id)

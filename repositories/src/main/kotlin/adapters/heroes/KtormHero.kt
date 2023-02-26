@@ -1,6 +1,6 @@
 package adapters.heroes
 
-import entities.Heroes
+import entities.heroes.Hero
 import org.ktorm.entity.Entity
 import types.Rarity
 import types.Specialty
@@ -15,10 +15,10 @@ internal interface KtormHero: Entity<KtormHero> {
     var specialty: Specialty
     var rarity: Rarity
 
-    fun toHeroes(): Heroes = Heroes(id, name, healthPoints, power, armor, specialty, rarity)
+    fun toHeroes(): Hero = Hero(id, name, healthPoints, power, armor, specialty, rarity)
 
     companion object: Entity.Factory<KtormHero>(){
-        fun fromHeroes(value: Heroes): KtormHero = KtormHero {
+        fun fromHeroes(value: Hero): KtormHero = KtormHero {
             id = value.id
             name = value.name
             healthPoints = value.healthPoints

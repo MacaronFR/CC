@@ -1,7 +1,7 @@
 package ports.out.heroes
 
-import entities.Heroes
+import entities.heroes.Hero
 
 interface HeroCreator {
-	fun create(hero: Heroes): Heroes
+	fun create(hero: Hero): Hero
 }
