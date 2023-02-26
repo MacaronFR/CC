@@ -16,5 +16,7 @@ interface UsersRepository{
 
 	fun update(id: UUID, value: UpdateUser): User
 
+	fun removeToken(id: UUID, amount: Int): User
+
 	fun delete(id: UUID): User
 }

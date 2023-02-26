@@ -11,5 +11,6 @@ services:
     volumes:
       - db:/var/lib/mysql
       - "./sql_script/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./sql_script/data.sql:/docker-entrypoint-initdb.d/2.sql"
 volumes:
   db:
