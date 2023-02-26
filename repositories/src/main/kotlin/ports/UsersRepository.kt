@@ -18,5 +18,7 @@ interface UsersRepository{
 
 	fun removeToken(id: UUID, amount: Int): User
 
+	fun addToken(id: UUID, amount: Int): User
+
 	fun delete(id: UUID): User
 }

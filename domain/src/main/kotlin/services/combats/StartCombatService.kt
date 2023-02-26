@@ -5,13 +5,14 @@ import entities.combats.Combat
 import entities.users.User
 import ports.CardsRepository
 import ports.CombatRepository
+import ports.UsersRepository
 import ports.out.combats.StartCombat
 import ports.out.exception.StartCombatException
 import services.cards.CardService
 import services.heroes.HeroService
 import java.util.*
 
-class StartCombatService(private val combatRepo: CombatRepository, private val cardRepo: CardsRepository): StartCombat {
+class StartCombatService(private val combatRepo: CombatRepository, private val cardRepo: CardsRepository, private val userRepo: UsersRepository): StartCombat {
 	override fun combat(user1: User, card1: Card, user2: User, card2: Card): Combat {
 		if(!user1.haveCard(card1) || !user2.haveCard(card2) ){
 			throw StartCombatException("User have not hero")
@@ -57,5 +58,8 @@ class StartCombatService(private val combatRepo: CombatRepository, private val c
 	
 	private fun registerCombat(combat: Combat){
 		combatRepo.create(combat)
+		if(combatRepo.readByUser(combat.winner.id).count() % 5 == 0){
+			userRepo
+		}
 	}
 }

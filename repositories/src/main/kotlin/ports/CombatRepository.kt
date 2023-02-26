@@ -12,5 +12,7 @@ interface CombatRepository {
 
 	fun readByUser(id: UUID): List<Combat>
 
+	fun readByWinner(id: UUID): List<Combat>
+
 	fun create(data: Combat): Combat
 }

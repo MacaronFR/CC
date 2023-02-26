@@ -12,6 +12,11 @@ class Users(val search: String? = null) {
 
 	@Resource("{id}")
 	class Id(val parent: Users, @Serializable(with = UUIDSerializer::class) val id: UUID){
+		@Resource("combat")
+		class Combat(val parent: Id){
+			@Resource("{card}")
+			class Card(val parent: Combat, @Serializable(with = UUIDSerializer::class) val card: UUID)
+		}
 		@Resource("open")
 		class Open(val parent: Id){
 			@Resource("{type}")

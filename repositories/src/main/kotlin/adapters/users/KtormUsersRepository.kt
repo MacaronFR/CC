@@ -59,6 +59,12 @@ class KtormUsersRepository(
 		toUser(cardRepo.getByDeck(deck.id))
 	} ?: throw UserNotFoundException()
 
+	override fun addToken(id: UUID, amount: Int): User = db.users.find { it.id eq id }?.run {
+		token += amount
+		flushChanges()
+		toUser(cardRepo.getByDeck(deck.id))
+	} ?: throw UserNotFoundException()
+
 	override fun delete(id: UUID): User = db.users.find { it.id eq id }?.run {
 		val cards = cardRepo.getByDeck(deck.id)
 		delete()
